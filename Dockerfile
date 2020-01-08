@@ -1,4 +1,6 @@
-FROM nginx
+FROM redhattraining/hello-world-nginx 
+
+USER 0
 
 # Install wget and install/updates certificates
 RUN apt-get update \
