@@ -11,7 +11,7 @@
    chmod 400 client-ssl.bauland42.com.key
    openssl req -new -key client-sclient-ssl.bauland42.com.key -sha256 -out client-ssl.bauland42.com.csr
  
-   openssl x509 -req -days 365 -sha256 -in client-ssl.bauland42.com.csr -CA ca/ca.crt -CAkey ca.key -set_serial 1 -out client-ssl.bauland42.com.crt
+   openssl x509 -req -days 365 -sha256 -in client-ssl.bauland42.com.csr -CA ca.crt -CAkey ca.key -set_serial 1 -out client-ssl.bauland42.com.crt
    chmod 444 client-ssl.bauland42.com.crt
  
  #client cert
