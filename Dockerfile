@@ -27,7 +27,7 @@ RUN apt-get update \
  
  
  # configer nginx
- COPY nginx.conf /etc/nginx/nginx.conf
+RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.confg 
  
  
 USER nginx
