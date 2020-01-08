@@ -39,6 +39,7 @@ RUN apt-get update \
  RUN openssl genrsa -out client/heiko.key 2048
  RUN openssl req -new -key client/heiko.key -out client/heiko.csr
  RUN openssl x509 -req -days 365 -sha256 -in client/heiko.csr -CA ca/ca.crt -CAkey ca/ca.key -set_serial 2 -out client/heiko.crt
+ RUN openssl pkcs12 -export -clcerts -in client/heiko.crt -inkey client/heiko.key -out client/heiko.p12
  
  
  
