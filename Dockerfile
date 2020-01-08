@@ -11,7 +11,9 @@ EXPOSE 8081
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 RUN addgroup nginx root
-USER nginx
+
+
+
 # Install wget and install/updates certificates
 RUN apt-get update \
  && apt-get install -y -q --no-install-recommends \
@@ -19,3 +21,5 @@ RUN apt-get update \
     wget \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
+ 
+USER nginx
