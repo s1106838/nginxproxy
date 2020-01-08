@@ -27,13 +27,7 @@ RUN apt-get update \
  
  
  # configer nginx
-RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.confg 
-
-
-# get genarate script for cert
-RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/gencert.sh
-RUN chmod 777 gencert.sh
-CMD ./gencert.sh
+RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.conf
 
 
 USER nginx
