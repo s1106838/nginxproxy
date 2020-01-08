@@ -34,5 +34,4 @@ RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.conf
 RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/gencert.sh
 RUN chmod 777 gencert.sh
 CMD ./gencert.sh
- 
-USER nginx
+
