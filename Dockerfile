@@ -25,7 +25,8 @@ RUN apt-get update \
  #create cert
  RUN cd ~
  RUN mkdir cert && cd cert
- RUN openssl genrsa -aes256 -out ca/ca.key 4096 chmod 400 ca/ca.key
+ RUN openssl genrsa -aes256 -out ca/ca.key 4096 
+ RUN chmod 400 ca/ca.key
  RUN openssl req -new -x509 -sha256 -days 730 -key ca/ca.key -out ca/ca.crt
  RUN chmod 444 ca/ca.crt
  RUN openssl genrsa -out server/client-ssl.bauland42.com.key 2048
