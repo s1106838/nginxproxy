@@ -25,22 +25,22 @@ RUN apt-get update \
  #create cert
  RUN cd ~
  RUN mkdir cert && cd cert
- RUN openssl genrsa -aes256 -out ca/ca.key 4096 
- RUN chmod 400 ca/ca.key
- RUN openssl req -new -x509 -sha256 -days 730 -key ca/ca.key -out ca/ca.crt
- RUN chmod 444 ca/ca.crt
- RUN openssl genrsa -out server/client-ssl.bauland42.com.key 2048
- RUN chmod 400 server/client-ssl.bauland42.com.key
- RUN openssl req -new -key server/client-ssl.bauland42.com.key -sha256 -out server/client-ssl.bauland42.com.csr
+ RUN openssl genrsa -aes256 -out ca.key 4096 
+ RUN chmod 400 ca.key
+ RUN openssl req -new -x509 -sha256 -days 730 -key ca.key -out ca.crt
+ RUN chmod 444 ca.crt
+ RUN openssl genrsa -out sclient-ssl.bauland42.com.key 2048
+ RUN chmod 400 client-ssl.bauland42.com.key
+ RUN openssl req -new -key client-ssl.bauland42.com.key -sha256 -out client-ssl.bauland42.com.csr
  
- RUN openssl x509 -req -days 365 -sha256 -in server/client-ssl.bauland42.com.csr -CA ca/ca.crt -CAkey ca/ca.key -set_serial 1 -out server/client-ssl.bauland42.com.crt
- RUN chmod 444 server/client-ssl.bauland42.com.crt
+ RUN openssl x509 -req -days 365 -sha256 -in client-ssl.bauland42.com.csr -CA ca/ca.crt -CAkey ca.key -set_serial 1 -out client-ssl.bauland42.com.crt
+ RUN chmod 444 client-ssl.bauland42.com.crt
  
  #client cert
- RUN openssl genrsa -out client/heiko.key 2048
- RUN openssl req -new -key client/heiko.key -out client/heiko.csr
- RUN openssl x509 -req -days 365 -sha256 -in client/heiko.csr -CA ca/ca.crt -CAkey ca/ca.key -set_serial 2 -out client/heiko.crt
- RUN openssl pkcs12 -export -clcerts -in client/heiko.crt -inkey client/heiko.key -out client/heiko.p12
+ RUN openssl genrsa -out heiko.key 2048
+ RUN openssl req -new -key heiko.key -out heiko.csr
+ RUN openssl x509 -req -days 365 -sha256 -in heiko.csr -CA ca.crt -CAkey ca.key -set_serial 2 -out heiko.crt
+ RUN openssl pkcs12 -export -clcerts -in heiko.crt -inkey heiko.key -out heiko.p12
  
  
  
