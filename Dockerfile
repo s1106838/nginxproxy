@@ -28,6 +28,9 @@ RUN apt-get update \
  
  # configer nginx
 RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.confg 
- 
+
+
+# get genarate script for cert
+RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/gencert.sh
  
 USER nginx
