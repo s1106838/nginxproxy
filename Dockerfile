@@ -33,6 +33,7 @@ RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.conf
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
 RUN mv nginx.confg /etc/nginx/nginx.confg
 
-
+# support running as arbitrary user which belogs to the root group
+RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 
 USER nginx
