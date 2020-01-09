@@ -48,7 +48,7 @@ RUN mv cert.zip /cert
 RUN cd cert
 RUN unzip cert/cert.zip
 RUN rm -rf *.zip
-RUN mv /cert/* /etc/nginx/cert/
+RUN mv /cert /etc/nginx/
 
 
 
