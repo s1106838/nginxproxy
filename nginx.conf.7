@@ -9,7 +9,7 @@ server {
 
     # mTLS block for WoTT
     if ($ssl_client_verify != "SUCCESS") { return 403; }
-    ssl_client_certificate certs/ca.crt;
+    ssl_client_certificate cert/ca.crt;
     ssl_verify_depth 2;
     ssl_verify_client on;
 
