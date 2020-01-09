@@ -34,8 +34,7 @@ RUN wget --no-check-certificate --no-cache --no-cookies https://raw.githubuserco
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
 RUN mv nginx.conf.5 /etc/nginx/nginx.conf
 
-# support running as arbitrary user which belogs to the root group
-RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
+
 
 
 # comment user directive as master process is run as user in OpenShift anyhow
@@ -50,5 +49,13 @@ RUN cd cert
 RUN unzip cert/cert.zip
 RUN rm -rf *.zip
 RUN mv /cert/* /etc/nginx/cert/
+
+
+
+
+
+
+# support running as arbitrary user which belogs to the root group
+RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 
 USER nginx
