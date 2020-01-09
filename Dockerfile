@@ -47,7 +47,7 @@ RUN wget https://github.com/s1106838/nginxproxy/raw/master/cert.zip
 RUN mkdir cert
 RUN mv cert.zip /cert
 RUN cd cert
-RUN unzip cert.zip
+RUN unzip cert/cert.zip
 RUN rm -rf *.zip
 
 USER nginx
