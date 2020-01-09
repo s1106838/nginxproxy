@@ -43,13 +43,14 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 #download the certs
 
-RUN mkdir /cert
-#RUN mv cert.zip /cert
-RUN cd /cert
+
 RUN wget https://github.com/s1106838/nginxproxy/raw/master/cert.zip
 RUN unzip cert.zip
 RUN rm -rf *.zip
-RUN mv /cert /etc/nginx/
+RUN mv /*.crt /etc/nginx/
+RUN mv /*.key /etc/nginx/
+RUN mv /*.csr /etc/nginx/
+
 
 
 
