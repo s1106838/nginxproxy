@@ -5,16 +5,6 @@ upstream appserver {
     server 172.17.0.17:8080;
 }
 
-server {
-    listen 8080:
-    root /var/www;
-    server_name _;
-    index index.htm index.html
-
-
-
-
-}
 
 server {
     listen 4433 ssl;
