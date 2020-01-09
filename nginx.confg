@@ -27,7 +27,7 @@ server {
  }
 }
 server {
- listen 443 ssl;
+ listen 4433 ssl;
  root /home/rails/rails_project/public;
 
  ssl_certificate /etc/nginx/certs/server/client-ssl.bauland42.com.crt;
