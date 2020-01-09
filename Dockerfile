@@ -4,8 +4,8 @@ FROM nginx
 RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 
 # users are not allowed to listen on priviliged ports
-RUN sed -i.bak 's/listen\(.*\)80;/listen 8081;/' /etc/nginx/conf.d/default.conf
-EXPOSE 8081
+RUN sed -i.bak 's/listen\(.*\)4433;/listen 8080;/' /etc/nginx/conf.d/default.conf
+EXPOSE 8080
 EXPOSE 4433
 
 
