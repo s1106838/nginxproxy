@@ -20,6 +20,8 @@ RUN apt-get update \
     ca-certificates \
     wget \
     openssh-client \
+    unzip \
+    zip \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
  
@@ -38,5 +40,14 @@ RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 
 # comment user directive as master process is run as user in OpenShift anyhow
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
+
+
+#download the certs
+RUN wget https://github.com/s1106838/nginxproxy/raw/master/cert.zip
+RUN mkdir cert
+RUN mv cert.zip /cert
+RUN cd cert
+RUN unzip cert.zip
+RUN rm -rf *.zip
 
 USER nginx
