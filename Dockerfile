@@ -30,9 +30,9 @@ RUN apt-get update \
  
  
  # configer nginx
-RUN wget --no-check-certificate --no-cache --no-cookies https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.conf.7
+RUN wget --no-check-certificate --no-cache --no-cookies https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.conf.8
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
-RUN mv nginx.conf.7 /etc/nginx/nginx.conf
+RUN mv nginx.conf.8 /etc/nginx/nginx.conf
 
 
 
