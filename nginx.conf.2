@@ -1,6 +1,6 @@
 http{
 upstream appserver {
-    server http://hello-world-nginx-secapi.13.81.11.55.nip.io;
+    server 	172.30.86.211:8080;
 }
 
 server {
@@ -21,7 +21,7 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header SSL_Client $ssl_client_s_dn;
         proxy_set_header SSL_Client_Verify $ssl_client_verify;
-        proxy_pass http://hello-world-nginx-secapi.13.81.11.55.nip.io/;
+        proxy_pass 	172.30.86.211:8080;
     }
 }
 
