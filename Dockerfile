@@ -31,7 +31,7 @@ RUN apt-get update \
  # configer nginx
 RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.confg
 RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
-RUN mv nginx.conf /etc/nginx/nginx.conf
+RUN mv nginx.confg /etc/nginx/nginx.confg
 
 
 
