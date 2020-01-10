@@ -22,6 +22,7 @@ RUN apt-get update \
     openssh-client \
     unzip \
     zip \
+    curl \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
  
