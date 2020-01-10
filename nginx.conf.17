@@ -2,7 +2,7 @@ events {}
 
 http{
 upstream appserver {
-    server 172.17.0.17:8080;
+    server 172.17.0.9:8080;
 }
 
 
@@ -24,7 +24,7 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header SSL_Client $ssl_client_s_dn;
         proxy_set_header SSL_Client_Verify $ssl_client_verify;
-        proxy_pass http://172.17.0.17:8080;
+        proxy_pass http://172.17.0.9:8080;
     }
 }
 
