@@ -1,21 +1,19 @@
 /bin/bash
 
-#create cert
-   cd ~
-   mkdir cert && cd cert
-   openssl genrsa -aes256 -out ca.key 4096 
-   chmod 400 ca.key
-   openssl req -new -x509 -sha256 -days 730 -key ca.key -out ca.crt
-   chmod 444 ca.crt
-   openssl genrsa -out client-sclient-ssl.bauland42.com.key 2048
-   chmod 400 client-ssl.bauland42.com.key
-   openssl req -new -key client-sclient-ssl.bauland42.com.key -sha256 -out client-ssl.bauland42.com.csr
- 
-   openssl x509 -req -days 365 -sha256 -in client-ssl.bauland42.com.csr -CA ca.crt -CAkey ca.key -set_serial 1 -out client-ssl.bauland42.com.crt
-   chmod 444 client-ssl.bauland42.com.crt
- 
- #client cert
-   openssl genrsa -out heiko.key 2048
-   openssl req -new -key heiko.key -out heiko.csr
-   openssl x509 -req -days 365 -sha256 -in heiko.csr -CA ca.crt -CAkey ca.key -set_serial 2 -out heiko.crt
-   openssl pkcs12 -export -clcerts -in heiko.crt -inkey heiko.key -out heiko.p12
+#Create the CA Key and Certificate for signing Client Certs
+openssl genrsa -aes256 -out ca.key 4096
+openssl req -new -x509 -days 365 -key ca.key -out ca.crt
+
+#Create the Server Key, CSR, and Certificate
+openssl genrsa -aes256 -out server.key 1024
+openssl req -new -key server.key -out server.csr
+
+#Self-sign the certificate with our CA cert
+openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out server.crt
+
+#Create the Client Key and CSR
+openssl genrsa -aes256 -out client.key 1024
+openssl req -new -key client.key -out client.csr
+
+#Sign the client certificate with our CA cert
+openssl x509 -req -days 365 -in client.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out client.crt
