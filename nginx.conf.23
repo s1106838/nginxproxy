@@ -22,7 +22,7 @@ server {
 
 
 
-    location / {
+    location /test {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header SSL_Client $ssl_client_s_dn;
