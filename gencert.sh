@@ -1,4 +1,4 @@
-/bin/bash
+#!/bin/bash
 
 #Create the CA Key and Certificate for signing Client Certs
 openssl genrsa -aes256 -out ca.key 4096
