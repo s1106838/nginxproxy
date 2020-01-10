@@ -8,7 +8,6 @@ upstream appserver {
 
 server {
     listen 4433 ssl;
-    ssl on;
 
 
     if ($ssl_client_verify != "SUCCESS") { return 403; }
