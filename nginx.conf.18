@@ -8,8 +8,9 @@ upstream appserver {
 
 server {
     listen 4433 ssl;
+    ssl on;
 
-    # mTLS block for WoTT
+
     if ($ssl_client_verify != "SUCCESS") { return 403; }
     ssl_client_certificate cert/ca.crt;
     ssl_verify_depth 2;
