@@ -53,6 +53,8 @@ RUN mv /*.crt /etc/nginx/cert/
 RUN mv /*.key /etc/nginx/cert/
 RUN mv /*.csr /etc/nginx/cert/
 
+RUN mv /*.txt /etc/nginx/cert/
+
 
 
 
