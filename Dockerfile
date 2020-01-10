@@ -45,8 +45,8 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 #download the certs
 
 
-RUN wget --no-check-certificate --no-cache --no-cookies https://github.com/s1106838/nginxproxy/raw/master/certs2.zip
-RUN unzip certs2.zip
+RUN wget --no-check-certificate --no-cache --no-cookies https://github.com/s1106838/nginxproxy/raw/master/certs3.zip
+RUN unzip certs3.zip
 RUN rm -rf *.zip
 RUN mkdir /etc/nginx/cert/
 RUN mv /*.crt /etc/nginx/cert/
