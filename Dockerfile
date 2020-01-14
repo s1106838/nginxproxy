@@ -41,6 +41,16 @@ RUN mv nginx.conf /etc/nginx/nginx.conf
 
 
 
+#make hello page
+RUN mkdir -p /var/www/html
+
+RUN wget https://raw.githubusercontent.com/webcomponents/hello-world-element/master/hello-world.html
+RUN mv hello-world.html index.html
+RUN mv index.html /var/ww/html/
+
+
+
+
 # comment user directive as master process is run as user in OpenShift anyhow
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
