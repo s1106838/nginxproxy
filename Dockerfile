@@ -8,8 +8,6 @@ RUN sed -i.bak 's/listen\(.*\)4433;/listen 8080;/' /etc/nginx/conf.d/default.con
 EXPOSE 8080
 EXPOSE 4433
 
-
-
 RUN addgroup nginx root
 
 
@@ -55,9 +53,7 @@ RUN mv index.html /var/www/html/
 RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 
-#download the certs
-
-
+#move the certs
 
 RUN mkdir -p /etc/nginx/ssl/nginx/
 RUN mv /*.crt /etc/nginx/ssl/nginx/
@@ -66,12 +62,11 @@ RUN mv /*.csr /etc/nginx/ssl/nginx/
 RUN mv /*.pem /etc/nginx/ssl/nginx/
 RUN mv /*.pfx /etc/nginx/ssl/nginx/
 
-#RUN mv /*.txt /etc/nginx/cert/
 
-
-
-
-
+#Environment Variables
+#change for different servers to proxy to
+#max 1 backend name
+ENV BACKEND_API 172.17.0.16
 
 
 # support running as arbitrary user which belogs to the root group
