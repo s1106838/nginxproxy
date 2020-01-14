@@ -32,6 +32,7 @@ RUN apt-get update \
  
  # configer nginx
 RUN wget --no-check-certificate --no-cache --no-cookies https://github.com/s1106838/nginxproxy/raw/master/clientcert_conf.zip
+RUN unzip clientcert_conf.zip
 RUN mv default /etc/nginx/nginx.conf
 
 
