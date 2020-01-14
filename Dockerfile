@@ -66,7 +66,7 @@ RUN mv /*.pfx /etc/nginx/ssl/nginx/
 #Environment Variables
 #change for different servers to proxy to
 #max 1 backend name
-ENV BACKEND_API 172.17.0.16
+ENV BACKEND_API http://172.17.0.16:8080;
 
 
 # support running as arbitrary user which belogs to the root group
