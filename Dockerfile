@@ -43,7 +43,7 @@ RUN mv nginx.conf /etc/nginx/nginx.conf
 
 
 #this is used for the backend api
-ENV $backendIpWithPort http://127.0.0.1:8080
+ENV backendIpWithPort http://127.0.0.1:8080
 
 
 #get scipt for setting the backend server when it starts
