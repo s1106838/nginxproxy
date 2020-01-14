@@ -31,9 +31,8 @@ RUN apt-get update \
  
  
  # configer nginx
-RUN wget --no-check-certificate --no-cache --no-cookies https://raw.githubusercontent.com/s1106838/nginxproxy/master/nginx.conf.25
-RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.backup
-RUN mv nginx.conf.25 /etc/nginx/nginx.conf
+RUN wget --no-check-certificate --no-cache --no-cookies https://github.com/s1106838/nginxproxy/raw/master/clientcert_conf.zip
+RUN mv default /etc/nginx/nginx.conf
 
 
 
@@ -45,13 +44,13 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 #download the certs
 
 
-RUN wget --no-check-certificate --no-cache --no-cookies https://github.com/s1106838/nginxproxy/raw/master/certs4.zip
-RUN unzip certs4.zip
-RUN rm -rf *.zip
-RUN mkdir /etc/nginx/cert/
-RUN mv /*.crt /etc/nginx/cert/
-RUN mv /*.key /etc/nginx/cert/
-RUN mv /*.csr /etc/nginx/cert/
+
+RUN mkdir /etc/nginx/ssl/nginx/
+RUN mv /*.crt /etc/nginx/ssl/nginx/
+RUN mv /*.key /etc/nginx/ssl/nginx/
+RUN mv /*.csr /etc/nginx/ssl/nginx/
+RUN mv /*.pem /etc/nginx/ssl/nginx/
+RUN mv /*.pfx /etc/nginx/ssl/nginx/
 
 RUN mv /*.txt /etc/nginx/cert/
 
