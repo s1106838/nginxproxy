@@ -24,7 +24,15 @@ RUN apt-get update \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
  
- 
+#this is used for the backend api
+ENV $backendIpWithPort http://127.0.0.1:8080
+
+
+#get scipt for setting the backend server when it starts
+RUN wget 
+RUN chmod 777 sciptsnaam
+ENTRYPOINT ["sciptnaam.sh"]
+
  
  
  
