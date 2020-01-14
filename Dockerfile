@@ -49,7 +49,7 @@ RUN sed -i.bak 's/^user/#user/' /etc/nginx/nginx.conf
 
 
 
-RUN mkdir /etc/nginx/ssl/nginx/
+RUN mkdir -p /etc/nginx/ssl/nginx/
 RUN mv /*.crt /etc/nginx/ssl/nginx/
 RUN mv /*.key /etc/nginx/ssl/nginx/
 RUN mv /*.csr /etc/nginx/ssl/nginx/
