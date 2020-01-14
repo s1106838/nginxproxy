@@ -46,7 +46,7 @@ RUN mkdir -p /var/www/html/
 
 RUN wget https://raw.githubusercontent.com/webcomponents/hello-world-element/master/hello-world.html
 RUN mv hello-world.html index.html
-RUN mv index.html /var/ww/html/
+RUN mv index.html /var/www/html/
 
 
 
