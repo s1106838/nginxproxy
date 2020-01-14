@@ -24,14 +24,7 @@ RUN apt-get update \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
  
-#this is used for the backend api
-ENV $backendIpWithPort http://127.0.0.1:8080
 
-
-#get scipt for setting the backend server when it starts
-RUN wget 
-RUN chmod 777 sciptsnaam
-ENTRYPOINT ["sciptnaam.sh"]
 
  
  
@@ -47,12 +40,24 @@ RUN mv nginx.conf /etc/nginx/nginx.conf
 
 
 
-#make hello page
-RUN mkdir -p /var/www/html/
 
-RUN wget https://raw.githubusercontent.com/webcomponents/hello-world-element/master/hello-world.html
-RUN mv hello-world.html index.html
-RUN mv index.html /var/www/html/
+
+#this is used for the backend api
+ENV $backendIpWithPort http://127.0.0.1:8080
+
+
+#get scipt for setting the backend server when it starts
+RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/genconf.sh
+RUN chmod 777 genconf.sh
+ENTRYPOINT ["genconf.sh.sh"]
+
+
+#make hello page
+#RUN mkdir -p /var/www/html/
+
+#RUN wget https://raw.githubusercontent.com/webcomponents/hello-world-element/master/hello-world.html
+#RUN mv hello-world.html index.html
+#RUN mv index.html /var/www/html/
 
 
 
@@ -71,10 +76,7 @@ RUN mv /*.pem /etc/nginx/ssl/nginx/
 RUN mv /*.pfx /etc/nginx/ssl/nginx/
 
 
-#Environment Variables
-#change for different servers to proxy to
-#max 1 backend name
-ENV BACKEND_API http://172.17.0.16:8080;
+
 
 
 # support running as arbitrary user which belogs to the root group
