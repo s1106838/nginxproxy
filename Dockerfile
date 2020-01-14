@@ -56,7 +56,7 @@ RUN mv /*.csr /etc/nginx/ssl/nginx/
 RUN mv /*.pem /etc/nginx/ssl/nginx/
 RUN mv /*.pfx /etc/nginx/ssl/nginx/
 
-RUN mv /*.txt /etc/nginx/cert/
+#RUN mv /*.txt /etc/nginx/cert/
 
 
 
