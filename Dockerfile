@@ -42,7 +42,7 @@ RUN mv nginx.conf /etc/nginx/nginx.conf
 
 
 #make hello page
-RUN mkdir -p /var/www/html
+RUN mkdir -p /var/www/html/
 
 RUN wget https://raw.githubusercontent.com/webcomponents/hello-world-element/master/hello-world.html
 RUN mv hello-world.html index.html
