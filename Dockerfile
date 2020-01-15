@@ -24,7 +24,7 @@ RUN apt-get update \
     unzip \
     zip \
     curl \
-    libnginx-mod-http-lua \
+    nginx-extras \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
  
