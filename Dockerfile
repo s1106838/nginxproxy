@@ -32,24 +32,20 @@ RUN apt-get update \
  # configer nginx
 RUN wget --no-check-certificate --no-cache --no-cookies https://github.com/s1106838/nginxproxy/raw/master/clientcert_conf12.zip
 RUN unzip clientcert_conf12.zip
-RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.back
-
-RUN mv default nginx.conf
-RUN mv nginx.conf /etc/nginx/nginx.conf
-
-
-
-
-
 
 #this is used for the backend api
 ENV backendIpWithPort http://127.0.0.1:8080
 
 
 #get scipt for setting the backend server when it starts
-RUN wget https://raw.githubusercontent.com/s1106838/nginxproxy/master/genconf.sh
-RUN chmod 777 genconf.sh
-ENTRYPOINT ["genconf.sh.sh"]
+#CMD sed -s "s/\$backendIpWithPort/$backendIpWithPort/g" default >> /etc/nginx/nginx.conf
+
+
+#backup default config
+RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.back
+#move new config to nginx 
+RUN mv default nginx.conf
+RUN mv nginx.conf /etc/nginx/nginx.conf
 
 
 #make hello page
