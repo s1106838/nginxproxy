@@ -30,8 +30,8 @@ RUN apt-get update \
  
  
  # configer nginx
-RUN wget --no-check-certificate --no-cache --no-cookies https://github.com/s1106838/nginxproxy/raw/master/clientcert_conf12.zip
-RUN unzip clientcert_conf12.zip
+RUN wget --no-check-certificate --no-cache --no-cookies https://github.com/s1106838/nginxproxy/raw/master/clientcert_conf13.zip
+RUN unzip clientcert_conf13.zip
 
 #this is used for the backend api
 ENV backendIpWithPort http://127.0.0.1:8080
