@@ -1,4 +1,6 @@
-FROM nginx
+FROM firesh/nginx-lua
+
+#FROM nginx
 #FROM openresty/openresty:latest
 
 # support running as arbitrary user which belogs to the root group
