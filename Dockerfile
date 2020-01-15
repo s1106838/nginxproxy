@@ -1,6 +1,6 @@
-FROM firesh/nginx-lua
+#FROM firesh/nginx-lua
 
-#FROM nginx
+FROM nginx
 #FROM openresty/openresty:latest
 
 # support running as arbitrary user which belogs to the root group
@@ -24,7 +24,7 @@ RUN apt-get update \
     unzip \
     zip \
     curl \
-    nginx-mod-http-lua \
+    libnginx-mod-http-lua \
  && apt-get clean \
  && rm -r /var/lib/apt/lists/*
  
