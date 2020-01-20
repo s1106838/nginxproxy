@@ -82,7 +82,7 @@ RUN mv /*.pfx /etc/nginx/ssl/nginx/
 # support running as arbitrary user which belogs to the root group
 #RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
 RUN chown -R www-data:www-data /var/lib/nginx
-RUN chmod 777 /var/lib/nginx/body
+RUN chmod -R 777 /var/lib/nginx/
 
 
 USER nginx
